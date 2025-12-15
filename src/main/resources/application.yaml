@@ -30,3 +30,7 @@ external:
   news-api:
     key: ${NEWS_API_KEY}
     url: ${NEWS_API_URL}
+internal:
+  admin:
+    user: ${ADMIN_USER}
+    pass: ${ADMIN_PASS}

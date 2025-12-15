@@ -114,5 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 trendingList.appendChild(li);
             });
         }
+
+        const tickerContent = document.querySelector('.ticker-content');
+        if(tickerContent && data.breakingNews){
+            tickerContent.textContent = data.breakingNews;
+            tickerContent.style.display = '';
+        }
     }
 });

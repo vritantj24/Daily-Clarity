@@ -15,4 +15,5 @@ public class LatestNewsResponse {
     private List<News> latestArticles;
     private List<String> categories;
     private List<News> trendingArticles;
+    private String breakingNews;
 }

@@ -46,7 +46,8 @@ public class NewsServiceImpl implements NewsService {
                 newsList.getFirst(),
                 newsList,
                 categories,
-                newsList.subList(0,Math.min(newsList.size(),5))
+                newsList.subList(0,Math.min(newsList.size(),5)),
+                newsList.getLast().getTitle()
         );
     }
 

@@ -30,7 +30,7 @@
             <ul id="nav-list">
                 <li><a href="#" class="active">Home</a></li>
                 <li th:each="category : ${categories}">
-                    <a th:href="@{${category}}" th:text="${category}">Category</a>
+                    <a href="#" th:text="${category}">Category</a>
                 </li>
             </ul>
         </nav>
@@ -39,7 +39,7 @@
 
 <div class="breaking-news">
     <span class="breaking-label">Breaking:</span>
-    <div class="ticker-content" th:text="${breakingNews != null} ? ${breakingNews.title} : 'Market hits all time high as tech stocks soar...'">
+    <div class="ticker-content" th:text="${breakingNews != null} ? ${breakingNews} : 'Market hits all time high as tech stocks soar...'">
         Loading breaking news...
     </div>
 </div>
@@ -52,14 +52,14 @@
         <div class="hero-content">
             <span class="category-tag" th:text="${featuredArticle.category}">World</span>
             <h1 class="hero-title">
-                <a th:href="@{${featuredArticle.url}}" th:text="${featuredArticle.title}">
+                <a th:href="@{${featuredArticle.url}}" target="_blank" th:text="${featuredArticle.title}">
                     Global Summit Reaches Historic Agreement on Climate Action
                 </a>
             </h1>
             <p class="hero-excerpt" th:text="${featuredArticle.description}">
                 Leaders from over 100 nations gathered today to sign a pivotal agreement that aims to reduce carbon emissions by 50% within the next decade...
             </p>
-            <a th:href="@{${featuredArticle.url}}" class="read-more">Read Full Story &rarr;</a>
+            <a th:href="@{${featuredArticle.url}}" target="_blank" class="read-more">Read Full Story &rarr;</a>
         </div>
     </section>
 
@@ -79,7 +79,7 @@
                                 <span th:text="${article.publishedAt}">Oct 12, 2023</span>
                             </span>
                         <h3 class="card-title">
-                            <a th:href="@{${article.url}}" th:text="${article.title}">
+                            <a th:href="@{${article.url}}" target="_blank" th:text="${article.title}">
                                 New AI Model Predicts Weather Patterns with 99% Accuracy
                             </a>
                         </h3>
@@ -105,7 +105,7 @@
                 <ul class="trending-list">
                     <li th:each="trend : ${trendingArticles}">
                         <span class="trend-number">#</span>
-                        <a th:href="@{${trend.url}}" th:text="${trend.title}">
+                        <a th:href="@{${trend.url}}" target="_blank" th:text="${trend.title}">
                             Economic policies shift as inflation stabilizes
                         </a>
                     </li>
@@ -127,7 +127,7 @@
 </main>
 
 <footer class="site-footer">
-    <p>&copy; 2023 The Daily Clarity. All rights reserved.</p>
+    <p>&copy; 2025 The Daily Clarity. All rights reserved.</p>
 </footer>
 
 <script th:src="@{/js/scripts.js}"></script>

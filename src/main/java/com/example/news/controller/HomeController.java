@@ -22,6 +22,7 @@ public class HomeController {
         model.addAttribute("latestArticles", news.getLatestArticles());
         model.addAttribute("categories", news.getCategories());
         model.addAttribute("trendingArticles", news.getTrendingArticles());
+        model.addAttribute("breakingNews", news.getBreakingNews());
 
         return "home";
     }
