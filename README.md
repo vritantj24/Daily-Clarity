@@ -1,4 +1,4 @@
-# Spring Boot News Platform
+# Daily-Clarity News Platform
 
 A real-time news platform built with Spring Boot that displays news articles with automatic updates using Server-Sent Events (SSE). The application fetches news from NewsAPI.org and stores it in PostgreSQL, with a Thymeleaf-based frontend that updates in real-time without page refreshes.
 
@@ -13,7 +13,7 @@ A real-time news platform built with Spring Boot that displays news articles wit
 
 ## Prerequisites
 
-- Java 17 or higher
+- Java 21
 - PostgreSQL database
 - Maven
 - NewsAPI.org API key (get it from [newsapi.org](https://newsapi.org))
