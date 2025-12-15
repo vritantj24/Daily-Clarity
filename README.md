@@ -2,6 +2,9 @@
 
 A real-time news platform built with Spring Boot that displays news articles with automatic updates using Server-Sent Events (SSE). The application fetches news from NewsAPI.org and stores it in PostgreSQL, with a Thymeleaf-based frontend that updates in real-time without page refreshes.
 
+# Access the Platform here:
+https://daily-clarity-production.up.railway.app/news/
+
 ## Features
 
 - 📰 Real-time news updates using Server-Sent Events (SSE)
