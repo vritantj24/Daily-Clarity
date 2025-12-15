@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Clarity | Home</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="top-bar">
+        <span id="current-date">Loading date...</span>
+        <div class="social-icons">
+            <a href="#">Fb</a>
+            <a href="#">Tw</a>
+            <a href="#">In</a>
+        </div>
+    </div>
+
+    <div class="main-header">
+        <div class="logo">The Daily Clarity</div>
+        <button class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="navbar">
+            <ul id="nav-list">
+                <li><a href="#" class="active">Home</a></li>
+                <li th:each="category : ${categories}">
+                    <a th:href="@{${category}}" th:text="${category}">Category</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="breaking-news">
+    <span class="breaking-label">Breaking:</span>
+    <div class="ticker-content" th:text="${breakingNews != null} ? ${breakingNews.title} : 'Market hits all time high as tech stocks soar...'">
+        Loading breaking news...
+    </div>
+</div>
+
+<main class="container">
+    <section class="hero-section" th:if="${featuredArticle != null}">
+        <div class="hero-image">
+            <img th:src="@{${featuredArticle.imageUrl}}" alt="Featured News" src="https://via.placeholder.com/800x450">
+        </div>
+        <div class="hero-content">
+            <span class="category-tag" th:text="${featuredArticle.category}">World</span>
+            <h1 class="hero-title">
+                <a th:href="@{${featuredArticle.url}}" th:text="${featuredArticle.title}">
+                    Global Summit Reaches Historic Agreement on Climate Action
+                </a>
+            </h1>
+            <p class="hero-excerpt" th:text="${featuredArticle.description}">
+                Leaders from over 100 nations gathered today to sign a pivotal agreement that aims to reduce carbon emissions by 50% within the next decade...
+            </p>
+            <a th:href="@{${featuredArticle.url}}" class="read-more">Read Full Story &rarr;</a>
+        </div>
+    </section>
+
+    <div class="content-grid">
+
+        <div class="latest-news">
+            <h2 class="section-title">Latest Stories</h2>
+
+            <div class="news-cards-wrapper">
+                <article class="news-card" th:each="article : ${latestArticles}">
+                    <div class="card-img">
+                        <img th:src="@{${article.imageUrl}}" src="https://via.placeholder.com/300x200" alt="News Image">
+                    </div>
+                    <div class="card-body">
+                            <span class="card-meta">
+                                <span th:text="${article.category}">Tech</span> |
+                                <span th:text="${article.publishedAt}">Oct 12, 2023</span>
+                            </span>
+                        <h3 class="card-title">
+                            <a th:href="@{${article.url}}" th:text="${article.title}">
+                                New AI Model Predicts Weather Patterns with 99% Accuracy
+                            </a>
+                        </h3>
+                        <p class="card-summary" th:text="${article.description}">
+                            Scientists have unveiled a new machine learning algorithm that outperforms traditional meteorological methods...
+                        </p>
+                    </div>
+                </article>
+
+                <article class="news-card" th:remove="all">
+                    <div class="card-img"><img src="https://via.placeholder.com/300x200" alt="News"></div>
+                    <div class="card-body">
+                        <span class="card-meta">Sports | Oct 11</span>
+                        <h3 class="card-title"><a href="#">Championship Finals: Underdog Team Takes the Trophy</a></h3>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Trending Now</h3>
+                <ul class="trending-list">
+                    <li th:each="trend : ${trendingArticles}">
+                        <span class="trend-number">#</span>
+                        <a th:href="@{${trend.url}}" th:text="${trend.title}">
+                            Economic policies shift as inflation stabilizes
+                        </a>
+                    </li>
+                    <li th:remove="all"><span class="trend-number">1</span> <a href="#">Local elections see record turnout</a></li>
+                    <li th:remove="all"><span class="trend-number">2</span> <a href="#">SpaceX launches new satellite constellation</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget newsletter">
+                <h3 class="widget-title">Subscribe</h3>
+                <p>Get the latest news delivered to your inbox.</p>
+                <form action="#" method="POST">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; 2023 The Daily Clarity. All rights reserved.</p>
+</footer>
+
+<script th:src="@{/js/scripts.js}"></script>
+</body>
+</html>
