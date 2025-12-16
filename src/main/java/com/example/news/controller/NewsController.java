@@ -19,7 +19,7 @@ public class NewsController {
         return ResponseEntity.ok().body(newsService.fetchLatest());
     }
 
-    @Scheduled(fixedRate = 1000 * 60 * 120, initialDelay = 1000 * 60 * 60)
+    @Scheduled(fixedRate = 1000 * 60 * 60 * 4, initialDelay = 1000 * 60 * 60)
     @PostMapping("admin/generate")
     public ResponseEntity<String> generateNews () {
         String response = newsService.generateNews();
